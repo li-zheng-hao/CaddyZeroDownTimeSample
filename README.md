@@ -30,3 +30,6 @@ node client.js
 
 测试结果：在停止server1时，正在执行的请求会中断并换一个节点重试，最后依然返回200，只是响应时间增加
 
+# 官方文档
+
+1. https://caddyserver.com/docs/caddyfile/directives/reverse_proxy
