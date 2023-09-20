@@ -1,0 +1,17 @@
+http://localhost:80 {
+	reverse_proxy * {
+		to localhost:8080
+		to localhost:8081
+        transport http {
+            dial_timeout 600ms
+        }
+        lb_policy first 
+        lb_retries 3
+        lb_try_duration 5s
+        fail_duration 10s
+		health_uri /health
+		health_interval 5s
+		health_timeout  2s
+		health_status   200
+	}
+}
