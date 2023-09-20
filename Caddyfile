@@ -1,17 +1,17 @@
 http://localhost:80 {
 	reverse_proxy * {
-		to localhost:8080
-		to localhost:8081
+		to localhost:8080 # 上游服务
+		to localhost:8081 # 上游服务
         transport http {
-            dial_timeout 600ms
+            dial_timeout 600ms # 连接服务的超时时间
         }
-        lb_policy first 
-        lb_retries 3
-        lb_try_duration 5s
-        fail_duration 10s
-		health_uri /health
-		health_interval 5s
-		health_timeout  2s
-		health_status   200
+        lb_policy first  # 自动选择第一个可用的服务
+        lb_retries 3 # 重试次数
+        lb_try_duration 5s # 重试最长时间
+        fail_duration 10s # 失败后认为服务不可用
+		health_uri /health 
+		health_interval 5s # 主动健康检查间隔
+		health_timeout  2s  # 健康检查超时时间
+		health_status   200 # 健康检查为通过的状态码
 	}
 }
