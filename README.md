@@ -1,0 +1,2 @@
+# CaddyZeroDownTimeSample
+使用Caddy进行0停机的负载均衡配置示例
